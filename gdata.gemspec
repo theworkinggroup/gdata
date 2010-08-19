@@ -1,3 +1,5 @@
+files = ['README', 'LICENSE', 'Rakefile', 'gdata.gemspec', '{bin,doc,lib,test}/**/*'].map {|f| Dir[f]}.flatten
+
 spec = Gem::Specification.new do |s|
   s.platform = Gem::Platform::RUBY
   s.author = 'Jeff Fisher'
@@ -13,9 +15,7 @@ spec = Gem::Specification.new do |s|
   s.has_rdoc = true
   s.extra_rdoc_files = ['README', 'LICENSE']
   s.rdoc_options << '--main' << 'README'
-  s.files = FileList.new('[A-Z]*', 'lib/**/*.rb', 'test/**/*') do |fl|
-    fl.exclude(/test_config\.yml$/)
-  end
+  s.files = files
   s.description = <<EOF
 This gem provides a set of wrappers designed to make it easy to work with 
 the Google Data APIs.
